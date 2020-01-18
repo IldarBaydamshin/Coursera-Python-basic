@@ -1,0 +1,9 @@
+v = int(input())
+s1 = v % 10
+s10 = (v % 60) // 10
+ss = str(s10) + str(s1)
+m1 = (v // 60) % 10
+m10 = (v // 600) % 6
+mm = str(m10) + str(m1)
+hh = (v // 3600) % 24
+print(hh,  mm, ss, sep=':')
