@@ -18,3 +18,5 @@ if answer % 1:
     print('{0:.6f}'.format(answer))
 else:
     print(int(answer))
+
+i.as
