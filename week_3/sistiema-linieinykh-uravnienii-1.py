@@ -10,4 +10,13 @@
     Вводятся шесть чисел a, b, c, d, e, f - коэффициенты уравнений системы.
 """
 
+a = float(input())
+b = float(input())
+c = float(input())
+d = float(input())
+e = float(input())
+f = float(input())
 
+x = (b * f - d * e) / (b * c - a * d)
+y = (a * f - c * e) / (a * d - c * b)
+print(x, y)
