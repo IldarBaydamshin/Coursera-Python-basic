@@ -39,7 +39,9 @@ f = float(input())
 x_denominator = (b * c - a * d)
 y_denominator = (a * d - c * b)
 
-if x_denominator and y_denominator:
+if b * d == 1:
+    print(1, -2 * (a * b + b * c), 2 * (d * c + b * f))
+elif x_denominator and y_denominator:
     x = (b * f - d * e) / x_denominator
     y = (a * f - c * e) / y_denominator
     print(2, x, y)
