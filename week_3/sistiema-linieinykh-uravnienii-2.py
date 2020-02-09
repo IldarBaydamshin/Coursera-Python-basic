@@ -28,7 +28,6 @@ y₀.
 вывести число 5.
 
 """
-
 a = float(input())
 b = float(input())
 c = float(input())
@@ -36,14 +35,32 @@ d = float(input())
 e = float(input())
 f = float(input())
 
-x_denominator = (b * c - a * d)
-y_denominator = (a * d - c * b)
+# ax + by = e  cx + dy = f
+if a * d - c * b:
+    x = (b * f - d * e) / (b * c - a * d)
+    y = (a * f - c * e) / (a * d - c * b)
+    print(2, '{0:.6f}'.format(x), '{0:.6f}'.format(y))
 
-if b * d == 1:
-    print(1, -2 * (a * b + b * c), 2 * (d * c + b * f))
-elif x_denominator and y_denominator:
-    x = (b * f - d * e) / x_denominator
-    y = (a * f - c * e) / y_denominator
-    print(2, x, y)
-elif a + b + f - c - d - e == 0:
+if a / c == b / d == e / f:
+    p = a / b
+    q = e / b
+    print(1, '{0:.6f}'.format(p), '{0:.6f}'.format(q))
+
+if a / c != b / d:
+    pass
+
+if not b and not d and a / c == e / f:
+    if a:
+        print(3, '{0:.6f}'.format(e / a))
+    else:
+        print(3, '{0:.6f}'.format(c / f))
+
+if not a and not c and b / d == e / f:
+    if b:
+        print(4, '{0:.6f}'.format(e / b))
+    else:
+        print(4, '{0:.6f}'.format(f / d))
+
+if not a and not b and not c and not d and not e and not f:
     print(5)
+
