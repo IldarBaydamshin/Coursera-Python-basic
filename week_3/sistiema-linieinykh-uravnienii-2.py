@@ -38,6 +38,7 @@ f = float(input())
 delta = a * d - c * b
 delta_x = e * d - f * b
 delta_y = a * f - c * e
+x, y, p, q = 0, 0, 0, 0
 
 if not a and not b and not c and not d and not e and not f:
     answer = '5'
