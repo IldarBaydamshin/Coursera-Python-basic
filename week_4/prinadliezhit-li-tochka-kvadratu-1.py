@@ -4,7 +4,8 @@
     Если точка принадлежит квадрату, выведите слово YES,
     иначе выведите слово NO.
     На рисунке сетка проведена с шагом 1.
-
+    https://www.coursera.org/learn/python-osnovy-programmirovaniya/
+    programming/GYhFu/prinadliezhit-li-tochka-kvadratu-1
 
     Решение должно содержать функцию IsPointInSquare(x, y),
     возвращающую True, если точка принадлежит квадрату
