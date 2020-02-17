@@ -17,9 +17,12 @@
 
 
 def xor(x, y):
-    return abs(x // 1 - y // 1)
+    return a != b
 
 
 a = int(input())
 b = int(input())
-print(xor(a, b))
+if xor(a, b):
+    print('1')
+else:
+    print('0')
