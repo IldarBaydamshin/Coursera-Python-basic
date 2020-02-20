@@ -5,4 +5,5 @@ def rec():
         print(n)
 
 
-rec()
+# rec()
+
