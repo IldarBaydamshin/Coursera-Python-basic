@@ -18,13 +18,11 @@
 """
 
 
-def gcd(a, b):
-    if b:
-        return gcd(b, a % b)
-    return a
-
-
 def reduce_fraction(n, m):
+    def gcd(a, b):
+        if b:
+            return gcd(b, a % b)
+        return a
     return n // gcd(n, m), m // gcd(n, m)
 
 
