@@ -52,5 +52,5 @@ def phib(n):
     return fib(p, q, n)
 
 
-a = int(input())
-print(phib(a))
+number = int(input())
+print(phib(number))
