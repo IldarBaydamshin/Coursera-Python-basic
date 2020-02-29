@@ -21,9 +21,11 @@ def lg4(n, save=0, depth=0, var=1000, q=0):
         return depth, var
 
     elif not n and depth > 4:
-        if var == 1530:
+        if var == 1700:
             return depth, var
 
+        var = 1700 if var == 1600 else var
+        var = 1600 if var == 1530 else var
         var = 1530 if var == 1500 else var
         var = 1500 if var == 1400 else var
         var = 1400 if var == 1300 else var
@@ -36,6 +38,8 @@ def lg4(n, save=0, depth=0, var=1000, q=0):
 
         return lg4(save, save, depth=0, var=var)
     elif n:
+        q = 7 if var == 1700 and depth == 0 else q
+        q = 6 if var == 1600 and depth == 0 else q
         q = 5 if var == 1530 and depth == 0 else q
         q = 3 if var == 1530 and depth == 1 else q
         q = 5 if var == 1500 and depth == 0 else q
