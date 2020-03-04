@@ -15,13 +15,13 @@
 """
 
 
-def lg4(n, save=0, depth=0, key=1000, q=0, a=0, b=0, c=0, d=0):
+def lg4(n, save=0, depth=0, key=0, q=0, a=0, b=0, c=0, d=0):
     save = n if not save else save
-    if not n and depth < 5:
+    if save == a + b + c + d:
         return a, b, c, d
-    elif not n and depth > 4:
+    elif n and depth == 4:
         if key == 12790:
-            return depth, key
+            return a, b, c, d
         key = 12790 if key == 123140 else key
         key = 123140 if key == 123130 else key
         key = 123130 if key == 12710 else key
@@ -108,11 +108,10 @@ def lg4(n, save=0, depth=0, key=1000, q=0, a=0, b=0, c=0, d=0):
         key = 1030 if key == 1010 else key
         key = 1010 if key == 1021 else key
         key = 1021 if key == 1100 else key
-        key = 1100 if key == 1000 else key
+        key = 1100 if key == 0 else key
+        return lg4(save, save, depth=0, key=key, q=0, a=0, b=0, c=0, d=0)
 
-        lg4(save, save, depth=0, key=key)
-    elif n:
-
+    elif n and key:
         q = 27 if key == 12790 and depth == 0 else q
         q = 9 if key == 12790 and depth == 1 else q
         q = 27 if key == 12710 and depth == 0 else q
@@ -264,97 +263,24 @@ def lg4(n, save=0, depth=0, key=1000, q=0, a=0, b=0, c=0, d=0):
         q = 1 if key == 1010 and depth == 1 else q
         q = 1 if key == 1100 and depth == 0 else q
 
-        m = (int(n ** .5) - q) ** 2
-        a = m if not a else a
-        b = m if not b else b
-        c = m if not c else c
-        d = m if not d else d
-        lg4(n - m, save, depth + 1, key, a, b, c, d)
+    m = (int(n ** .5) - q) ** 2
+    if not a:
+        a = m
+    elif not b:
+        b = m
+    elif not c:
+        c = m
+    elif not d:
+        d = m
+    return lg4(n - m, save, depth + 1, key, 0, a, b, c, d)
 
 
-# lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 22, 23, 167, 7223]
-# lg4(48)
-# print()
-print(lg4(704))
-# t = 0
-# for i in range(10001):
-#     if lg4(i)[0] > 4:
-#         print()
-#         print('=' * 10)
-#         print('    n =', i)
-#         print('Depth =', lg4(i)[0])
-#         print('Variant', lg4(i)[1])
-#         print('-' * 9)
-#
-#         relay = i
-#         t += 1
-#
-#         print()
-#         n = relay
-#         print(n)
-#         print()
-#         a, b, c, d = 0, 0, 0, 0
-#         ia = 0
-#         a = ia ** 2
-#         stopper = 0
-#         while a <= n:
-#             ib = 0
-#             b = ib ** 2
-#             while b <= (n - a):
-#                 ic = 0
-#                 c = ic ** 2
-#                 while c <= (n - a - b):
-#                     id_ = 0
-#                     d = id_ ** 2
-#                     while d <= (n - a - b - c):
-#                         head = a + b + c + d
-#                         tail = n - head
-#                         if tail == 0:
-#                             td = n - d
-#                             tc = td - c
-#                             tb = tc - b
-#                             print(d, c, b, a)
-#                             # print('tails', td, tc, tb)
-#                             stopper = 1
-#                             break
-#                         if stopper:
-#                             break
-#                         id_ += 1
-#                         d = id_ ** 2
-#                     if stopper:
-#                         break
-#                     ic += 1
-#                     c = ic ** 2
-#                 if stopper:
-#                     break
-#                 ib += 1
-#                 b = ib ** 2
-#             if stopper:
-#                 break
-#             ia += 1
-#             a = ia ** 2
-#
-#         print()
-#         print('-' * 9, d)
-#         m = int(n ** .5)
-#         for i in range(m, 0, -1):
-#             if i ** 2 == d:
-#                 print(m - i, '-', i ** 2)
-#
-#         print('-' * 9, c)
-#         m = int(td ** .5)
-#         for i in range(m, 0, -1):
-#             if i ** 2 == c:
-#                 print(m - i, '-', i ** 2)
-#
-#         print('-' * 9, b)
-#
-#         m = int(tc ** .5)
-#         for i in range(m, 0, -1):
-#             if i ** 2 == b:
-#                 print(m - i, '-', i ** 2)
-
-#
+print(lg4(0))
+t = 0
+for i in range(10001):
+    if lg4(i)[0]:
+        print(lg4(i))
+        t += 1
 
 print()
-print('OK')
+print('OK', t)
