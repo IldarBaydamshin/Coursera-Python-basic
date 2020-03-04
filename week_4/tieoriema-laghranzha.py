@@ -15,10 +15,10 @@
 """
 
 
-def lg4(n, save=0, depth=0, key=0, q=0, a=0, b=0, c=0, d=0):
-    save = n if not save else save
-    if save == a + b + c + d:
-        return a, b, c, d
+def lg4(n, init_n=0, depth=0, key=0, q=0, a=0, b=0, c=0, d=0):
+    init_n = n if not init_n else init_n
+    if init_n == a + b + c + d:
+        return int(a ** .5), int(b ** .5), int(c ** .5), int(d ** .5)
     elif n and depth == 4:
         if key == 12790:
             return a, b, c, d
@@ -109,7 +109,7 @@ def lg4(n, save=0, depth=0, key=0, q=0, a=0, b=0, c=0, d=0):
         key = 1010 if key == 1021 else key
         key = 1021 if key == 1100 else key
         key = 1100 if key == 0 else key
-        return lg4(save, save, depth=0, key=key, q=0, a=0, b=0, c=0, d=0)
+        return lg4(init_n, init_n, depth=0, key=key, q=0, a=0, b=0, c=0, d=0)
 
     elif n and key:
         q = 27 if key == 12790 and depth == 0 else q
@@ -272,15 +272,7 @@ def lg4(n, save=0, depth=0, key=0, q=0, a=0, b=0, c=0, d=0):
         c = m
     elif not d:
         d = m
-    return lg4(n - m, save, depth + 1, key, 0, a, b, c, d)
+    return lg4(n - m, init_n, depth + 1, key, 0, a, b, c, d)
 
 
-print(lg4(0))
-t = 0
-for i in range(10001):
-    if lg4(i)[0]:
-        print(lg4(i))
-        t += 1
-
-print()
-print('OK', t)
+print(*lg4(int(input())))
