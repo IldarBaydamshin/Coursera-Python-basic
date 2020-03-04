@@ -110,7 +110,8 @@ def lg4(n, save=0, depth=0, key=1000, q=0):
         key = 1260 if key == 1253 else key
 
         key = 1253 if key == 1250 else key
-        key = 1250 if key == 1230 else key
+        key = 1250 if key == 1240 else key
+        key = 1240 if key == 1230 else key
 
         key = 1230 if key == 1220 else key
         key = 1220 if key == 1200 else key
@@ -119,8 +120,9 @@ def lg4(n, save=0, depth=0, key=1000, q=0):
         key = 1211 if key == 1210 else key
         key = 1210 if key == 1153 else key
 
-        key = 1153 if key == 1140 else key
+        key = 1153 if key == 1150 else key
 
+        key = 1150 if key == 1140 else key
         key = 1140 if key == 1130 else key
 
         key = 1130 if key == 1120 else key
@@ -278,6 +280,9 @@ def lg4(n, save=0, depth=0, key=1000, q=0):
         q = 2 if key == 1250 and depth == 0 else q
         q = 5 if key == 1250 and depth == 1 else q
 
+        q = 2 if key == 1240 and depth == 0 else q
+        q = 4 if key == 1240 and depth == 1 else q
+
         q = 2 if key == 1230 and depth == 0 else q
         q = 3 if key == 1230 and depth == 1 else q
         q = 2 if key == 1220 and depth < 2 else q
@@ -292,6 +297,9 @@ def lg4(n, save=0, depth=0, key=1000, q=0):
         q = 1 if key == 1153 and depth == 0 else q
         q = 5 if key == 1153 and depth == 1 else q
         q = 3 if key == 1153 and depth == 2 else q
+
+        q = 1 if key == 1150 and depth == 0 else q
+        q = 5 if key == 1150 and depth == 1 else q
 
         q = 1 if key == 1140 and depth == 0 else q
         q = 4 if key == 1140 and depth == 1 else q
