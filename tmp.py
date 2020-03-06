@@ -22,7 +22,6 @@ def lg4(n):
 
 # print(lg4(23))
 
-
 t = 0
 for i in range(101):
     if lg4(i)[0]:
