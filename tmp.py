@@ -12,20 +12,23 @@ def lg4(n):
                 a_max = int(n ** .5)
                 while a <= a_max:
                     if n == a ** 2 + b ** 2 + c ** 2 + d ** 2:
-                        # print(a ** 2, b ** 2, c ** 2, d ** 2)
-                        return a, b, c, d
+                        return a ** 2 + b ** 2 + c ** 2 + d ** 2, a, b, c, d
                     a += 1
                 b += 1
             c += 1
         d += 1
 
 
-# print(lg4(23))
+print(lg4(192))
+exit(0)
 
 t = 0
-for i in range(101):
-    if lg4(i)[0]:
+print(10001)
+for i in range(10001):
+    if lg4(i)[0] != i:
         print('_' * 10)
         print(i, lg4(i))
-        t += 1
+    t += 1
+    print('\r', t, sep='', end='')
 print('\n', 'OK', t)
+
