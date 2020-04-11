@@ -134,3 +134,6 @@ dmypy.json
 #PyCharm
 .idea/
 temp.py
+input.txt
+output.txt
+test.py
