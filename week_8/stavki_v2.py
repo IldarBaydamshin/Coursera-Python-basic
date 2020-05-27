@@ -4,20 +4,14 @@ import operator
 from pprint import pprint
 
 fin = open('input.txt')
-# f1 = map(lambda kn: int(kn), fin.readline().split())
-# f2 = tuple(zip(*((lambda x, y: (
-#     tuple(itertools.permutations(range(1, x + 1))),
-#     tuple(itertools.repeat(
-#         tuple(itertools.chain(
-#             *map(lambda _: map(int, fin.readline().split()), range(y)))),
-#         len(tuple(itertools.permutations(range(x))))))))(*f1))))
+f1 = (lambda k, n: (
+    range(1, k + 1),
+    tuple(map(lambda i: (i[:2], i[2:]),
+              map(lambda _: tuple(map(int, fin.readline().split())),
+                  range(n)))))
+      )(*map(int, fin.readline().split()))
+f2 = (lambda a, b: zip(itertools.permutations(a), itertools.repeat(b)))(*f1)
 
-f1 = map(lambda kn: int(kn), fin.readline().split())
-f2 = tuple(zip(*((lambda x, y: (
-    tuple(itertools.permutations(range(1, x + 1))),
-    tuple(itertools.repeat(
-            tuple(map(lambda i: (i[:2], i[2:]), map(lambda _: tuple(map(int, fin.readline().split())), range(y)))),
-        len(tuple(itertools.permutations(range(x))))
-    ))))(*f1))))
 
-pprint(f2)
+print(next(f2))
+
